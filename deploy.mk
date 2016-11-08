@@ -22,5 +22,5 @@ $(VAULT_ZIP):
 	mkdir -p $(ARCHIVE_DIR)
 	curl -L $(VAULT_ZIP_URL) -o $(VAULT_ZIP)
 
-$(VAULT_CMD):
+$(VAULT_CMD): $(VAULT_ZIP)
 	unzip $(VAULT_ZIP) -d $(VAULT_EXPORT_DIR)
