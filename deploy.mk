@@ -1,3 +1,4 @@
+IMAGE_NAME := takesxisximada/docker-alpine
 VAULT_ZIP_URL := https://releases.hashicorp.com/vault/0.6.2/vault_0.6.2_linux_amd64.zip
 ARCHIVE_DIR := $(CURDIR)/archives
 VAULT_ZIP := $(ARCHIVE_DIR)/vault_0.6.2_linux_amd64.zip
@@ -11,7 +12,7 @@ help:
 
 .PHONY: build
 build: $(VAULT_CMD)
-	docker build . --build-arg VAULT=$(VAULT_CMD) --tag takesxisximada/docker-alpine-base
+	docker build . --build-arg VAULT=$(VAULT_CMD) --tag $(IMAGE_NAME)
 
 .PHONY: download
 download: $(VAULT_ZIP)
