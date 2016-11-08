@@ -9,10 +9,13 @@ VAULT_CMD := $(VAULT_EXPORT_DIR)/vault
 help:
 	@unmake $(MAKEFILE_LIST)
 
-
 .PHONY: build
 build: $(VAULT_CMD)
 	docker build . --build-arg VAULT=$(VAULT_CMD) --tag $(IMAGE_NAME)
+
+.PHONY: debug
+debug:
+	docker run -it $(IMAGE_NAME) sh
 
 .PHONY: download
 download: $(VAULT_ZIP)
